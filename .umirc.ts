@@ -16,7 +16,8 @@ export default defineConfig({
   fastRefresh: {},
   proxy: {
     '/api': {
-      target: 'http://localhost:9001',
+      // target: 'http://localhost:9001',
+      target: 'https://pvp.qq.com',
       changeOrigin: true,
       pathRewrite: { '^/api': '' },
     },

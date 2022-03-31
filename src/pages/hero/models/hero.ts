@@ -1,4 +1,4 @@
-import { Effect, ImmerReducer, Reducer, Subscription } from 'umi'
+import { Effect, ImmerReducer, Reducer, Subscription, request } from 'umi'
 
 export interface HeroModelState {
   name: string
@@ -31,7 +31,8 @@ const HeroModel: HeroModelType = {
   effects: {
     // *query({ payload }, { call, put }) {},
     *fetch({ type, payload }, { call, put, select }) {
-      const data = [
+      const data = yield request('/web201605/js/herolist.json')
+      const localData = [
         {
           ename: 105,
           cname: '廉颇',
@@ -49,7 +50,7 @@ const HeroModel: HeroModelType = {
           skin_name: '恋之微风|万圣前夜|天鹅之梦|纯白花嫁|缤纷独角兽',
         },
       ]
-      yield put({ type: 'save', payload: { heros: data } })
+      yield put({ type: 'save', payload: { heros: data || localData } })
     },
   },
 
