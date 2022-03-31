@@ -1,7 +1,18 @@
-import React from 'react'
+import React, { FC } from 'react'
+import { connect, HeroModelState, ConnectProps } from 'umi'
 
-const Hero = () => {
-  return <div>Hero</div>
+interface PagePros extends ConnectProps {
+  hero: HeroModelState
 }
 
-export default Hero
+const Hero: FC<PagePros> = (props) => {
+  console.log('props: ', props.hero)
+  return (
+    <div>
+      <h1>Page hero</h1>
+      <h2>This is {props.hero.name}</h2>
+    </div>
+  )
+}
+
+export default connect(({ hero }: { hero: HeroModelState }) => ({ hero }))(Hero)
