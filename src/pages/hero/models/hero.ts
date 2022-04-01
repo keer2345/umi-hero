@@ -1,8 +1,17 @@
 import { Effect, ImmerReducer, Reducer, Subscription, request } from 'umi'
 
+interface HeroProps {
+  ename: number
+  cname: string
+  title: string
+  new_type: number
+  hero_type: number
+  skin_name: string
+}
+
 export interface HeroModelState {
   name: string
-  heros: []
+  heros: HeroProps[]
 }
 
 export interface HeroModelType {
