@@ -69,7 +69,7 @@ const HeroModel: HeroModelType = {
 
   subscriptions: {
     setup({ dispatch, history }) {
-      return history.listen(({ pathname }) => {
+      return history.listen(({ pathname, query }) => {
         if (pathname === '/hero') {
           dispatch({
             type: 'fetch',
