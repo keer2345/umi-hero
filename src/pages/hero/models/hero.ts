@@ -12,6 +12,7 @@ interface HeroProps {
 export interface HeroModelState {
   name: string
   heros: HeroProps[]
+  filterKey: number
 }
 
 export interface HeroModelType {
@@ -35,6 +36,7 @@ const HeroModel: HeroModelType = {
   state: {
     name: '',
     heros: [],
+    filterKey: 0,
   },
 
   effects: {
